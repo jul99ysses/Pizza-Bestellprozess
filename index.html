@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza belegen</title>
+    <script src="js/models/Ingredient.js"></script>
+    <script src="js/models/Pizza.js"></script>
+    <script src="js/models/Form.js"></script>
+    <script src="js/models/Order.js"></script>
+    <script src="js/logic/OrderController.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        button {
+            margin-top: 10px;
+        }
+        #outputArea {
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid rgb(72, 72, 72);
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        td:first-child {
+            min-width: 600px;
+        }
+
+        td:last-child {
+            text-align: right;
+        }
+
+        #errorOutputArea {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Belege deine Pizza</h1>
+    <div>
+        <input type="radio" id="salamipizza" name="pizza" value="salamipizza">
+        <label for="salamipizza">Salamipizza</label>
+    </div>
+    <div>
+        <input type="radio" id="margharita" name="pizza" value="margharita">
+        <label for="margharita">Margharita</label>
+    </div>
+    <div>
+        <input type="radio" id="gemuesepizza" name="pizza" value="gemuesepizza">
+        <label for="gemuesepizza">Gemüsepizza</label>
+    </div>
+    <div>
+        <input type="radio" id="hawaii" name="pizza" value="hawaii">
+        <label for="hawaii">Pizza Hawaii</label>
+    </div>
+
+    <h1>Möchtest du zusätzliche Zutaten?</h1>
+    <div>
+        <input type="checkbox" id="mais" name="mais">
+        <label for="mais">Mais</label>
+    </div>
+    <div>
+        <input type="checkbox" id="schinken" name="schinken">
+        <label for="schinken">Schinken</label>
+    </div>
+    <div>
+        <input type="checkbox" id="oliven" name="oliven">
+        <label for="oliven">Oliven</label>
+    </div>
+    <div>
+        <input type="checkbox" id="kapern" name="kapern">
+        <label for="kapern">Kapern</label>
+    </div>
+
+    <button class="payButton" type="button" onclick=addPizzaToOrder()> Pizza hinzufügen</button>
+    <button class="payButton" type="button" onclick=removeLastPizzaFromOrder()> Letzte Pizza entfernen</button>
+    <div id="outputArea"></div>
+    <div id="errorOutputArea"></div>
+</body>
+
+</html>

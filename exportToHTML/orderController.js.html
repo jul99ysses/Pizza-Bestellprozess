@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>orderController.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+orderController.js</font>
+</center></td></tr></table>
+<pre><span class="s0">class </span><span class="s1">OrderController {</span>
+
+    <span class="s1">constructor() {</span>
+    <span class="s1">}</span>
+
+<span class="s2">//Get value from Ausgewählte Pizza</span>
+<span class="s2">//get value from ausgewählte ingredients --&gt; ins array pushen</span>
+<span class="s2">// get total sum (pizza value + pizza ingredients)</span>
+<span class="s2">// ins output feld geben</span>
+
+    <span class="s1">getChosenPizza() {</span>
+        <span class="s0">const </span><span class="s1">selectedSalami = document.getElementById(</span><span class="s3">&quot;salamipizza&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedMargharita = document.getElementById(</span><span class="s3">&quot;margharita&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedGemuese = document.getElementById(</span><span class="s3">&quot;gemuesepizza&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedHawaii = document.getElementById(</span><span class="s3">&quot;hawaii&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">let </span><span class="s1">pizza</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(selectedSalami) {</span>
+            <span class="s1">pizza = </span><span class="s0">new </span><span class="s1">Pizza(</span><span class="s3">&quot;Salamipizza&quot;</span><span class="s0">, </span><span class="s4">10</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(selectedMargharita) {</span>
+            <span class="s1">pizza = </span><span class="s0">new </span><span class="s1">Pizza(</span><span class="s3">&quot;Margharita&quot;</span><span class="s0">, </span><span class="s4">8</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(selectedGemuese) {</span>
+            <span class="s1">pizza = </span><span class="s0">new </span><span class="s1">Pizza(</span><span class="s3">&quot;Gemuesepizza&quot;</span><span class="s0">, </span><span class="s4">5</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(selectedHawaii) {</span>
+            <span class="s1">pizza = </span><span class="s0">new </span><span class="s1">Pizza(</span><span class="s3">&quot;Hawaiipizza&quot;</span><span class="s0">, </span><span class="s4">7</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">pizza</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">getChosenIngredients() {</span>
+        <span class="s0">const </span><span class="s1">selectedMais = document.getElementById(</span><span class="s3">&quot;mais&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedSchinken = document.getElementById(</span><span class="s3">&quot;schinken&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedOliven = document.getElementById(</span><span class="s3">&quot;oliven&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">selectedKapern = document.getElementById(</span><span class="s3">&quot;kapern&quot;</span><span class="s1">).checked</span><span class="s0">;</span>
+        <span class="s0">let </span><span class="s1">listOfIngredients = []</span><span class="s0">;</span>
+        <span class="s0">if </span><span class="s1">(selectedMais) {</span>
+            <span class="s0">let </span><span class="s1">ingredient = </span><span class="s0">new </span><span class="s1">Ingredient(</span><span class="s3">&quot;Mais&quot;</span><span class="s0">, </span><span class="s4">1</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">listOfIngredients.push(ingredient)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">if </span><span class="s1">(selectedSchinken) {</span>
+            <span class="s0">let </span><span class="s1">ingredient = </span><span class="s0">new </span><span class="s1">Ingredient(</span><span class="s3">&quot;Schinken&quot;</span><span class="s0">, </span><span class="s4">1.2</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">listOfIngredients.push(ingredient)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">if </span><span class="s1">(selectedOliven) {</span>
+            <span class="s0">let </span><span class="s1">ingredient = </span><span class="s0">new </span><span class="s1">Ingredient(</span><span class="s3">&quot;Oliven&quot;</span><span class="s0">, </span><span class="s4">0.6</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">listOfIngredients.push(ingredient)</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">if </span><span class="s1">(selectedKapern) {</span>
+            <span class="s0">let </span><span class="s1">ingredient = </span><span class="s0">new </span><span class="s1">Ingredient(</span><span class="s3">&quot;Kapern&quot;</span><span class="s0">, </span><span class="s4">0.1</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">listOfIngredients.push(ingredient)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">listOfIngredients</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">getTotalSum() {</span>
+        <span class="s0">const </span><span class="s1">ingredients = </span><span class="s0">this</span><span class="s1">.getChosenIngredients()</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">pizza = </span><span class="s0">this</span><span class="s1">.getChosenPizza()</span><span class="s0">;</span>
+        <span class="s0">let </span><span class="s1">totalSum = pizza.pizzaPrice</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">let </span><span class="s1">ingredient of ingredients) {</span>
+            <span class="s1">totalSum += ingredient.ingredientPrice</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">totalSum</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+    <span class="s1">displayPurchase() {</span>
+        <span class="s0">const </span><span class="s1">output = document.getElementById(</span><span class="s3">&quot;outputArea&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s0">const </span><span class="s1">pizza = </span><span class="s0">this</span><span class="s1">.getChosenPizza()</span><span class="s0">;</span>
+        <span class="s0">let </span><span class="s1">outputString = </span><span class="s3">&quot;Pizza &quot; </span><span class="s1">+ pizza.pizzaName + </span><span class="s3">&quot; &quot; </span><span class="s1">+ pizza.pizzaPrice + </span><span class="s3">&quot; Euro &lt;br&gt;&quot;</span><span class="s0">;</span>
+        <span class="s0">let </span><span class="s1">ingredients = </span><span class="s0">this</span><span class="s1">.getChosenIngredients()</span><span class="s0">;</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">let </span><span class="s1">ingredient of ingredients) {</span>
+            <span class="s1">outputString += </span><span class="s3">&quot;Zutat: &quot; </span><span class="s1">+ ingredient.ingredientName + </span><span class="s3">&quot; &quot; </span><span class="s1">+ ingredient.ingredientPrice + </span><span class="s3">&quot; Euro &lt;br&gt;&quot;</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s1">outputString += </span><span class="s3">&quot;Summe: &quot; </span><span class="s1">+ </span><span class="s0">this</span><span class="s1">.getTotalSum().toFixed(</span><span class="s4">2</span><span class="s1">)+ </span><span class="s3">&quot;Euro&quot;</span><span class="s0">;</span>
+        <span class="s1">output.innerHTML = outputString</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+
+<span class="s1">}</span></pre>
+</body>
+</html>
